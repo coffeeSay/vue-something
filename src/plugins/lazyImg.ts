@@ -1,10 +1,10 @@
-import { App } from 'vue';
+import { App, DirectiveBinding } from 'vue';
 import { IMAGE_DEFAULT } from '../config/env';
 
 const install = (app: App) => {
 	app.directive('lazy', ({
 		// created() {},
-		beforeMount(el, binding) {
+		beforeMount(el: HTMLElement, binding: DirectiveBinding) {
 			if (!el.getAttribute('src')) {
 				el.setAttribute('src', IMAGE_DEFAULT);
 			}
